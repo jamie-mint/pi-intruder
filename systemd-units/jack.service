@@ -1,0 +1,14 @@
+[Unit]
+Description=jack
+
+[Service]
+Environment="JACK_NO_AUDIO_RESERVATION=1":"DBUS_SESSION_BUS_ADDRESS=unix":"path=/run/dbus/system_bus_socket"
+LimitRTPRIO=infinity
+LimitMEMLOCK=infinity
+Type=simple
+User=pi
+#ExecStart=/usr/bin/qjackctl -s
+ExecStart=/usr/bin/jackd -R -dalsa -dhw:USB,0 -r44100 -p512 -n3
+
+[Install]
+WantedBy=multi-user.target

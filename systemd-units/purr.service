@@ -1,0 +1,11 @@
+[Unit]
+Description=Jack audio server 
+After=jack.service
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=pi
+Type=simple
+ExecStart=/usr/bin/purr-data -nogui -jack -open /home/pi/alarm-trigger.pd

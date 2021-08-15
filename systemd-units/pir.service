@@ -1,0 +1,10 @@
+[Unit]
+Description=PIR python sense
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/PIR/read.py
